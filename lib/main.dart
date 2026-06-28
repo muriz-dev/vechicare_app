@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:vechicare_app/core/di/injection.dart';
+import 'package:vechicare_app/core/routes/app_router.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  configureDependencies();
   runApp(const MainApp());
 }
 
@@ -9,12 +13,7 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
-    );
+    final appRouter = AppRouter();
+    return MaterialApp.router(routerConfig: appRouter.config());
   }
 }

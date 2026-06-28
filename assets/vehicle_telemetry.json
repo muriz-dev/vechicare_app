@@ -1,0 +1,10 @@
+{
+    "vehicle_id": "VEHI-2026-X1",
+    "vehicle_name": "Tesla Model Y",
+    "speed": 65.5,
+    "engine_temperature": 88.2,
+    "fuel_battery_level": 92,
+    "is_engine_on": true,
+    "latitude": -6.175392,
+    "longitude": 106.827153
+}

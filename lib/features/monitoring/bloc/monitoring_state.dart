@@ -7,9 +7,9 @@ class MonitoringStatInitial implements MonitoringState {}
 class MonitoringStatLoading implements MonitoringState {}
 
 class MonitoringStatLoaded implements MonitoringState {
-  final VehicleModel vehicle;
+  final List<VehicleModel> vehicles;
 
-  const MonitoringStatLoaded({required this.vehicle});
+  const MonitoringStatLoaded({required this.vehicles});
 }
 
 class MonitoringStatError implements MonitoringState {

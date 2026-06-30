@@ -9,15 +9,15 @@ import '../../../data/repositories/vehicle_repository.dart';
 @LazySingleton(as: VehicleRepository)
 class MonitoringRepository implements VehicleRepository {
   @override
-  Future<VehicleModel> getVehicleTelemetry() async {
+  Future<List<VehicleModel>> getVehicleTelemetry() async {
     await Future.delayed(const Duration(seconds: 1));
 
     final String response = await rootBundle.loadString(
       'assets/vehicle_telemetry.json',
     );
 
-    final Map<String, dynamic> data = json.decode(response);
+    final List<dynamic> data = json.decode(response);
 
-    return VehicleModel.fromJson(data);
+    return data.map((json) => VehicleModel.fromJson(json)).toList();
   }
 }

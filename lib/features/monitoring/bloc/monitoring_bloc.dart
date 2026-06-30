@@ -19,9 +19,9 @@ class MonitoringBloc extends Bloc<MonitoringEvent, MonitoringState> {
     emit(MonitoringStatLoading());
 
     try {
-      final vehicleData = await _vehicleRepository.getVehicleTelemetry();
+      final vehiclesData = await _vehicleRepository.getVehicleTelemetry();
 
-      emit(MonitoringStatLoaded(vehicle: vehicleData));
+      emit(MonitoringStatLoaded(vehicles: vehiclesData));
     } catch (e) {
       emit(MonitoringStatError(message: e.toString()));
     }

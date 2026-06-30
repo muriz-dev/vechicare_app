@@ -129,58 +129,75 @@ class _DashboardPageState extends State<DashboardPage> {
         if (state is MonitoringStatLoaded) {
           final vehicles = state.vehicles;
 
-          return SingleChildScrollView(
-            physics: const BouncingScrollPhysics(),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    'Halo, Budi!',
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
-                  ),
-                  const SizedBox(height: 8),
-                  const Text(
-                    'Analisis Kendaraan',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
-                  ),
-                  const SizedBox(height: 8),
-                  VehicleCarousel(
-                    vehicles: vehicles,
-                    onPageChanged: (index) {
-                      setState(() {
-                        _selectedIndex = index;
-                      });
-                    },
-                  ),
-                  const SizedBox(height: 16),
-                  const Text(
-                    'Data Realtime',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
-                  ),
-                  const SizedBox(height: 8),
-                  if (vehicles.isNotEmpty)
-                    TelemetryGrid(
-                      vehicle: _selectedIndex < vehicles.length
-                          ? vehicles[_selectedIndex]
-                          : vehicles.first,
+          return SafeArea(
+            child: SingleChildScrollView(
+              physics: const BouncingScrollPhysics(),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 8,
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      'Halo, Budi!',
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
-                  const SizedBox(height: 16),
-                  const Text(
-                    'Peringatan',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
-                  ),
-                  const SizedBox(height: 8),
-                  if (vehicles.isNotEmpty)
-                    Column(
-                      children: _buildWarnings(
-                        _selectedIndex < vehicles.length
+                    const SizedBox(height: 8),
+                    const Text(
+                      'Analisis Kendaraan',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    VehicleCarousel(
+                      vehicles: vehicles,
+                      onPageChanged: (index) {
+                        setState(() {
+                          _selectedIndex = index;
+                        });
+                      },
+                    ),
+                    const SizedBox(height: 16),
+                    const Text(
+                      'Data Realtime',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    if (vehicles.isNotEmpty)
+                      TelemetryGrid(
+                        vehicle: _selectedIndex < vehicles.length
                             ? vehicles[_selectedIndex]
                             : vehicles.first,
                       ),
+                    const SizedBox(height: 16),
+                    const Text(
+                      'Peringatan',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
-                ],
+                    const SizedBox(height: 8),
+                    if (vehicles.isNotEmpty)
+                      Column(
+                        children: _buildWarnings(
+                          _selectedIndex < vehicles.length
+                              ? vehicles[_selectedIndex]
+                              : vehicles.first,
+                        ),
+                      ),
+                  ],
+                ),
               ),
             ),
           );

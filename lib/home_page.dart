@@ -24,8 +24,8 @@ class HomePage extends StatelessWidget {
               label: 'Monitoring',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.health_and_safety_outlined),
-              activeIcon: Icon(Icons.health_and_safety),
+              icon: Icon(Icons.build_outlined),
+              activeIcon: Icon(Icons.build),
               label: 'Diagnosis',
             ),
             BottomNavigationBarItem(

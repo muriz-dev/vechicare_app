@@ -1,10 +1,32 @@
-{
-    "vehicle_id": "VEHI-2026-X1",
+[
+  {
+    "vehicle_id": "VEHI-2026-E1",
     "vehicle_name": "Tesla Model Y",
-    "speed": 65.5,
-    "engine_temperature": 88.2,
+    "rpm": 1200,
+    "engine_temperature": 45.0,
+    "fuel_consumption": 6.5,
     "fuel_battery_level": 92,
-    "is_engine_on": true,
     "latitude": -6.175392,
     "longitude": 106.827153
-}
+  },
+  {
+    "vehicle_id": "VEHI-2026-C1",
+    "vehicle_name": "Honda Brio Satya",
+    "rpm": 2450,
+    "engine_temperature": 87.0,
+    "fuel_consumption": 12.5,
+    "fuel_battery_level": 75,
+    "latitude": -6.208763,
+    "longitude": 106.845599
+  },
+  {
+    "vehicle_id": "VEHI-2026-C2",
+    "vehicle_name": "Toyota Innova Zenix",
+    "rpm": 3200,
+    "engine_temperature": 108.0,
+    "fuel_consumption": 9.2,
+    "fuel_battery_level": 40,
+    "latitude": -6.152345,
+    "longitude": 106.812345
+  }
+]

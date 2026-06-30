@@ -9,7 +9,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AutoTabsScaffold(
-      routes: [DashboardRoute(), DiagnosisResultRoute(), ProfileRoute()],
+      routes: [DashboardRoute(), DiagnosisProcessRoute(), ProfileRoute()],
       bottomNavigationBuilder: (_, tabsRouter) {
         return BottomNavigationBar(
           selectedItemColor: Theme.of(context).colorScheme.primary,

@@ -141,13 +141,20 @@ class _DashboardPageState extends State<DashboardPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text(
-                      'Halo, Budi!',
+                      'Halo, Zaenal Abidin',
                       style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    const SizedBox(height: 8),
+                    const Text(
+                      'Mari lihat kondisi kendaraanmu saat ini yuk!',
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                    const SizedBox(height: 16),
                     const Text(
                       'Analisis Kendaraan',
                       style: TextStyle(

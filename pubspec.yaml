@@ -16,6 +16,7 @@ dependencies:
   carousel_slider: ^5.1.2
   syncfusion_flutter_charts: ^33.2.15
   syncfusion_flutter_gauges: ^33.2.15
+  collection: ^1.19.1
 
 dev_dependencies:
   flutter_lints: ^6.0.0

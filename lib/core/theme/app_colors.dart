@@ -1,37 +1,29 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  // --- UTAMA (BACKGROUND & BRAND) ---
-  // Latar belakang utama aplikasi (Putih Bersih)
   static const Color background = Color(0xFFFFFFFF);
 
-  // Latar belakang halaman belakang/shadow (Abu-abu sangat terang)
-  static const Color scaffoldBackground = Color(0xFFF8F9FA);
+  static const Color scaffoldBackground = Color(0xFFFAFAFA);
 
-  // Banner Utama "Add new car" & Icon Aktif Navigasi (Biru SF Pro)
-  static const Color primaryBlue = Color(0xFF4B87FE);
+  static const Color primary = Color(0xFF5285F7);
 
-  // --- MENU HORIZONTAL ("Might be interesting") ---
-  // Card pertama: "Apply for insurance" (Hijau Toska)
-  static const Color menuGreen = Color(0xFF3ED0AD);
+  static const Color primaryDark = Color(0xFF2A458C);
 
-  // Card kedua: "Apply for insurance" (Putih dengan Border)
-  static const Color menuWhite = Color(0xFFFFFFFF);
+  static const Color primaryAccent = Color(0xFFDEE6FD);
 
-  // --- ELEMEN UI & Ikon Kustom ("Choose services") ---
-  // Background kolom pencarian & Border tipis pada Card Layanan (Abu-abu Terang)
-  static const Color uiBorder = Color(0xFFF1F3F5);
+  static const Color secondary = Color(0xFF1D2330);
 
-  // Ikon Oli, Ikon Mesin, Text Utama, dan Navigasi Non-Aktif (Hitam/Gelap)
-  static const Color textDark = Color(0xFF1C2430);
+  static const Color secondaryAccent = Color(0xFF344154);
 
-  // Subtitle teks kecil seperti "Regular oil change" (Abu-abu Redup)
-  static const Color textMuted = Color(0xFF868E96);
+  static const Color textDark = Color(0xFF1D2330);
 
-  // --- WARNA TAMBAHAN DARI PALET (Bisa untuk Status IoT / Notifikasi) ---
-  // Indikator Peringatan / Warning (Oranye)
-  static const Color statusWarning = Color(0xFFF39A31);
+  static const Color textLight = Color(0xFFFFFFFF);
 
-  // Indikator Kritis / Alert Baterai (Merah Salmon)
-  static const Color statusAlert = Color(0xFFFF7373);
+  static const Color textMuted = Color(0xFFADADAD);
+
+  static const Color success = Color(0xFF62CCAE);
+
+  static const Color warning = Color(0xFFEAA044);
+
+  static const Color alert = Color(0xFFF37E76);
 }

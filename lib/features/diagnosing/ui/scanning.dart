@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vechicare_app/core/routes/app_router.dart';
+import 'package:vechicare_app/core/theme/app_sizes.dart';
 import 'package:vechicare_app/features/diagnosing/cubit/diagnosis_cubit.dart';
 import 'package:vechicare_app/features/diagnosing/cubit/diagnosis_state.dart';
 import 'package:vechicare_app/features/diagnosing/ui/widgets/cancel_scanning_button.dart';
@@ -47,7 +48,7 @@ class ScanningPage extends StatelessWidget {
     final steps = context.read<DiagnosisCubit>().steps;
 
     return Padding(
-      padding: const EdgeInsets.all(24.0),
+      padding: AppSizes.pagePadding,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

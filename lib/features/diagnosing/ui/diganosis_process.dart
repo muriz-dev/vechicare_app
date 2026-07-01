@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:vechicare_app/core/routes/app_router.dart';
+import 'package:vechicare_app/core/theme/app_sizes.dart';
 import 'package:vechicare_app/features/diagnosing/ui/widgets/current_status_card.dart';
 import 'package:vechicare_app/features/diagnosing/ui/widgets/start_scan_card.dart';
 import 'package:vechicare_app/features/diagnosing/ui/widgets/warning_card.dart';
@@ -14,20 +15,14 @@ class DiagnosisProcessPage extends StatelessWidget {
     return SafeArea(
       child: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
-        padding: const EdgeInsets.all(16.0),
+        padding: AppSizes.pagePadding,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // Header
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text(
-                  'Diagnosa Kendaraan',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                ),
-                IconButton(icon: const Icon(Icons.history), onPressed: () {}),
-              ],
+            Text(
+              'Diagnosa Kendaraan',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 24),
 

@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:vechicare_app/core/theme/app_sizes.dart';
 import 'package:vechicare_app/data/models/vehicle_model.dart';
 import '../../../core/di/injection.dart';
 import '../bloc/monitoring_bloc.dart';
@@ -133,17 +134,14 @@ class _DashboardPageState extends State<DashboardPage> {
             child: SingleChildScrollView(
               physics: const BouncingScrollPhysics(),
               child: Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 8,
-                ),
+                padding: AppSizes.pagePadding,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text(
                       'Halo, Zaenal Abidin',
                       style: TextStyle(
-                        fontSize: 24,
+                        fontSize: 20,
                         fontWeight: FontWeight.w600,
                       ),
                     ),

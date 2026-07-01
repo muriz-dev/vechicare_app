@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:vechicare_app/core/theme/app_sizes.dart';
 import 'package:vechicare_app/features/diagnosing/cubit/diagnosis_state.dart';
 import 'package:vechicare_app/features/diagnosing/ui/widgets/finding_card.dart';
 import 'package:vechicare_app/features/diagnosing/ui/widgets/score_gauge.dart';
@@ -31,7 +32,7 @@ class DiagnosisResultPage extends StatelessWidget {
         actions: [IconButton(icon: const Icon(Icons.share), onPressed: () {})],
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(24.0),
+        padding: AppSizes.pagePadding,
         child: Column(
           children: [
             // Gauge for Score

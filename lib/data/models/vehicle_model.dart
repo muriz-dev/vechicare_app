@@ -7,6 +7,7 @@ class VehicleModel {
   final int fuelBatteryLevel;
   final double latitude;
   final double longitude;
+  final DateTime lastUpdated;
 
   VehicleModel({
     required this.vehicleId,
@@ -17,6 +18,7 @@ class VehicleModel {
     required this.fuelBatteryLevel,
     required this.latitude,
     required this.longitude,
+    required this.lastUpdated,
   });
 
   factory VehicleModel.fromJson(Map<String, dynamic> json) {
@@ -29,6 +31,7 @@ class VehicleModel {
       fuelBatteryLevel: json['fuel_battery_level'] as int,
       latitude: (json['latitude'] as num).toDouble(),
       longitude: (json['longitude'] as num).toDouble(),
+      lastUpdated: DateTime.parse(json['last_updated'] as String),
     );
   }
 
@@ -41,6 +44,7 @@ class VehicleModel {
     'fuel_battery_level': fuelBatteryLevel,
     'latitude': latitude,
     'longitude': longitude,
+    'last_updated': lastUpdated.toIso8601String(),
   };
 
   VehicleModel copyWith({
@@ -52,6 +56,7 @@ class VehicleModel {
     int? fuelBatteryLevel,
     double? latitude,
     double? longitude,
+    DateTime? lastUpdated,
   }) {
     return VehicleModel(
       vehicleId: vehicleId ?? this.vehicleId,
@@ -62,6 +67,7 @@ class VehicleModel {
       fuelBatteryLevel: fuelBatteryLevel ?? this.fuelBatteryLevel,
       latitude: latitude ?? this.latitude,
       longitude: longitude ?? this.longitude,
+      lastUpdated: lastUpdated ?? this.lastUpdated,
     );
   }
 }

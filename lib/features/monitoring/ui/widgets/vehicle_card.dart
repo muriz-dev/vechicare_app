@@ -39,6 +39,21 @@ class VehicleCard extends StatelessWidget {
     return score.clamp(0, 100);
   }
 
+  String _formatTimeAgo(DateTime date) {
+    final now = DateTime.now();
+    final difference = now.difference(date);
+    
+    if (difference.inDays > 0) {
+      return 'Terakhir diperbarui ${difference.inDays} hari yang lalu';
+    } else if (difference.inHours > 0) {
+      return 'Terakhir diperbarui ${difference.inHours} jam yang lalu';
+    } else if (difference.inMinutes > 0) {
+      return 'Terakhir diperbarui ${difference.inMinutes} menit yang lalu';
+    } else {
+      return 'Baru saja diperbarui';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final healthScore = _calculateHealthScore(vehicle);
@@ -136,7 +151,7 @@ class VehicleCard extends StatelessWidget {
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    'Terakhir diperbarui 10 menit yang lalu',
+                    _formatTimeAgo(vehicle.lastUpdated),
                     style: AppTypography.bodySmall.copyWith(
                       color: AppColors.textMuted,
                       fontSize: 10,

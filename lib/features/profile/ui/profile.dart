@@ -17,6 +17,7 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
         padding: AppSizes.pagePadding,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,

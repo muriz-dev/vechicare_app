@@ -10,23 +10,9 @@ class VehicleSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              'Kendaraan Saya',
-              style: AppTypography.headingSmall.copyWith(
-                color: AppColors.textDark,
-              ),
-            ),
-            Text(
-              '+ Tambah',
-              style: AppTypography.bodySmall.copyWith(
-                color: AppColors.secondaryAccent,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-          ],
+        Text(
+          'Kendaraan Saya',
+          style: AppTypography.headingSmall.copyWith(color: AppColors.textDark),
         ),
         const SizedBox(height: 12),
         Card(
@@ -42,16 +28,9 @@ class VehicleSection extends StatelessWidget {
               color: AppColors.secondary,
             ),
             title: Text(
-              'Honda Brio Satya',
+              '3 Kendaraan Terdaftar',
               style: AppTypography.headingXSmall.copyWith(
                 color: AppColors.secondaryAccent,
-              ),
-            ),
-            subtitle: Text(
-              'B 1234 ABC • Skor: 85',
-              style: AppTypography.bodySmall.copyWith(
-                color: AppColors.textMuted,
-                fontWeight: FontWeight.w500,
               ),
             ),
             trailing: const Icon(

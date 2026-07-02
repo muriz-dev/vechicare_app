@@ -10,7 +10,6 @@ import '../bloc/monitoring_state.dart';
 import 'widgets/vehicle_carousel.dart';
 import 'widgets/telemetry_grid.dart';
 import 'widgets/warning_card.dart';
-import 'package:vechicare_app/core/theme/app_colors.dart';
 import 'package:vechicare_app/core/theme/app_typography.dart';
 
 @RoutePage()
@@ -141,7 +140,7 @@ class _DashboardPageState extends State<DashboardPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text(
-                      'Halo, Zaenal Abidin',
+                      'Halo, Riko Pratama',
                       style: AppTypography.headingMedium,
                     ),
                     const Text(

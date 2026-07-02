@@ -70,6 +70,7 @@ class MetricCard extends StatelessWidget {
             label.toUpperCase(),
             style: AppTypography.bodySmall.copyWith(
               color: AppColors.primaryAccent,
+              fontWeight: FontWeight.w600,
             ),
           ),
         ],

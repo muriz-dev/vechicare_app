@@ -20,12 +20,11 @@ class ScanningPage extends StatelessWidget {
     return BlocProvider(
       create: (context) => DiagnosisCubit()..startScanning(),
       child: Scaffold(
+        backgroundColor: AppColors.background,
         body: SafeArea(
           child: BlocConsumer<DiagnosisCubit, DiagnosisState>(
             listener: (context, state) {
               if (state is DiagnosisCompleted) {
-                // Pass the findings and score to the result page via route (we will use a singleton or pass arguments if needed, but here we can just use the state if we put the cubit higher, or we can just pass the state to the route).
-                // For simplicity, passing arguments to the route:
                 context.router.replace(
                   DiagnosisResultRoute(
                     score: state.score,

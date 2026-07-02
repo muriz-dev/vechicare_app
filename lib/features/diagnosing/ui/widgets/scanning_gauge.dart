@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
+import 'package:vechicare_app/core/theme/app_colors.dart';
+import 'package:vechicare_app/core/theme/app_typography.dart';
 
 class ScanningGauge extends StatelessWidget {
   final int progress;
@@ -26,20 +28,13 @@ class ScanningGauge extends StatelessWidget {
             showTicks: false,
             axisLineStyle: const AxisLineStyle(
               thickness: 0.1,
-              color: Color.fromARGB(
-                30,
-                0,
-                100,
-                255,
-              ), // Light blue background
+              color: AppColors.primaryAccent,
               thicknessUnit: GaugeSizeUnit.factor,
             ),
             pointers: <GaugePointer>[
               RangePointer(
                 value: progress.toDouble(),
-                color: const Color(
-                  0xFF1976D2,
-                ), // Darker blue like in mockup
+                color: AppColors.primary,
                 cornerStyle: CornerStyle.bothCurve,
                 width: 0.1,
                 sizeUnit: GaugeSizeUnit.factor,
@@ -56,17 +51,16 @@ class ScanningGauge extends StatelessWidget {
                   children: [
                     Text(
                       '$progress%',
-                      style: const TextStyle(
+                      style: AppTypography.headingMedium.copyWith(
                         fontSize: 56,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     Text(
                       stepName,
-                      style: const TextStyle(
-                        fontSize: 16,
-                        color: Colors.grey,
-                        fontWeight: FontWeight.w500,
+                      style: AppTypography.bodyRegular.copyWith(
+                        color: AppColors.textMuted,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                   ],

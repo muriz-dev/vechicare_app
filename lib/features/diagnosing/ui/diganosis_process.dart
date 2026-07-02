@@ -5,6 +5,8 @@ import 'package:vechicare_app/core/theme/app_sizes.dart';
 import 'package:vechicare_app/features/diagnosing/ui/widgets/current_status_card.dart';
 import 'package:vechicare_app/features/diagnosing/ui/widgets/start_scan_card.dart';
 import 'package:vechicare_app/features/diagnosing/ui/widgets/warning_card.dart';
+import 'package:vechicare_app/core/theme/app_colors.dart';
+import 'package:vechicare_app/core/theme/app_typography.dart';
 
 @RoutePage()
 class DiagnosisProcessPage extends StatelessWidget {
@@ -22,9 +24,11 @@ class DiagnosisProcessPage extends StatelessWidget {
             // Header
             Text(
               'Diagnosa Kendaraan',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              style: AppTypography.headingMedium.copyWith(
+                color: AppColors.textDark,
+              ),
             ),
-            const SizedBox(height: 24),
+            const SizedBox(height: 16),
 
             // 1. Scan Card
             StartScanCard(
@@ -32,31 +36,52 @@ class DiagnosisProcessPage extends StatelessWidget {
                 context.router.push(const ScanningRoute());
               },
             ),
-            const SizedBox(height: 24),
+            const SizedBox(height: 16),
 
             // 2. Status Terkini
-            const Text(
+            Text(
               'Status Terkini',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              style: AppTypography.headingSmall.copyWith(
+                color: AppColors.textDark,
+              ),
             ),
             const SizedBox(height: 12),
             const CurrentStatusCard(),
-            const SizedBox(height: 24),
+            const SizedBox(height: 16),
 
             // 3. Temuan Terakhir
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
+                Text(
                   'Temuan Terakhir',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  style: AppTypography.headingSmall.copyWith(
+                    color: AppColors.textDark,
+                  ),
                 ),
-                TextButton(onPressed: () {}, child: const Text('Riwayat >')),
+                TextButton(
+                  onPressed: () {},
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        'Riwayat',
+                        style: AppTypography.bodySmall.copyWith(
+                          color: AppColors.secondaryAccent,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      const Icon(
+                        Icons.arrow_forward_ios,
+                        size: 12,
+                        color: AppColors.secondaryAccent,
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
-            const SizedBox(height: 8),
 
-            // Custom Warning Card (without AI elements)
             const WarningCard(),
           ],
         ),

@@ -8,6 +8,8 @@ import 'package:vechicare_app/features/diagnosing/cubit/diagnosis_state.dart';
 import 'package:vechicare_app/features/diagnosing/ui/widgets/cancel_scanning_button.dart';
 import 'package:vechicare_app/features/diagnosing/ui/widgets/scanning_gauge.dart';
 import 'package:vechicare_app/features/diagnosing/ui/widgets/scanning_steps_list.dart';
+import 'package:vechicare_app/core/theme/app_colors.dart';
+import 'package:vechicare_app/core/theme/app_typography.dart';
 
 @RoutePage()
 class ScanningPage extends StatelessWidget {
@@ -59,7 +61,10 @@ class ScanningPage extends StatelessWidget {
           const Spacer(),
           Text(
             'Estimasi: ${state.remainingSeconds} detik lagi',
-            style: const TextStyle(color: Colors.grey, fontSize: 14),
+            style: AppTypography.bodySmall.copyWith(
+              color: AppColors.textMuted,
+              fontWeight: FontWeight.w500,
+            ),
           ),
           const SizedBox(height: 24),
           CancelScanningButton(

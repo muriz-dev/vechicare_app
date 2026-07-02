@@ -4,6 +4,8 @@ import 'package:vechicare_app/core/theme/app_sizes.dart';
 import 'package:vechicare_app/features/diagnosing/cubit/diagnosis_state.dart';
 import 'package:vechicare_app/features/diagnosing/ui/widgets/finding_card.dart';
 import 'package:vechicare_app/features/diagnosing/ui/widgets/score_gauge.dart';
+import 'package:vechicare_app/core/theme/app_colors.dart';
+import 'package:vechicare_app/core/theme/app_typography.dart';
 
 @RoutePage()
 class DiagnosisResultPage extends StatelessWidget {
@@ -24,14 +26,19 @@ class DiagnosisResultPage extends StatelessWidget {
           icon: const Icon(Icons.arrow_back),
           onPressed: () => context.router.back(),
         ),
-        title: const Text(
+        title: Text(
           'Hasil Diagnosa',
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: AppTypography.headingMedium.copyWith(
+            color: AppColors.textDark,
+          ),
         ),
         centerTitle: true,
         actions: [IconButton(icon: const Icon(Icons.share), onPressed: () {})],
+        backgroundColor: AppColors.background,
       ),
+      backgroundColor: AppColors.background,
       body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
         padding: AppSizes.pagePadding,
         child: Column(
           children: [
@@ -39,9 +46,12 @@ class DiagnosisResultPage extends StatelessWidget {
             ScoreGauge(score: score),
 
             // Subtitle
-            const Text(
+            Text(
               'BAIK — Perlu Perhatian',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              style: AppTypography.headingMedium.copyWith(
+                color: AppColors.textDark,
+                fontWeight: FontWeight.bold,
+              ),
             ),
             const SizedBox(height: 32),
 
@@ -50,8 +60,8 @@ class DiagnosisResultPage extends StatelessWidget {
               alignment: Alignment.centerLeft,
               child: Text(
                 'Temuan (${findings.length})',
-                style: const TextStyle(
-                  fontSize: 18,
+                style: AppTypography.headingSmall.copyWith(
+                  color: AppColors.textDark,
                   fontWeight: FontWeight.bold,
                 ),
               ),

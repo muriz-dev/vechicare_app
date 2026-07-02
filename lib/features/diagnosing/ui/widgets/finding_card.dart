@@ -1,22 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:vechicare_app/features/diagnosing/cubit/diagnosis_state.dart';
+import 'package:vechicare_app/core/theme/app_colors.dart';
+import 'package:vechicare_app/core/theme/app_typography.dart';
 
 class FindingCard extends StatelessWidget {
   final DiagnosisFinding finding;
 
-  const FindingCard({
-    super.key,
-    required this.finding,
-  });
+  const FindingCard({super.key, required this.finding});
 
   @override
   Widget build(BuildContext context) {
-    final isDark = Theme.of(context).brightness == Brightness.dark;
-    
     return Container(
       margin: const EdgeInsets.only(bottom: 16.0),
       decoration: BoxDecoration(
-        color: isDark ? Colors.grey[800] : const Color(0xFFF5F6F8),
+        color: AppColors.scaffoldBackground,
         borderRadius: BorderRadius.circular(16),
       ),
       clipBehavior: Clip.antiAlias,
@@ -33,38 +30,32 @@ class FindingCard extends StatelessWidget {
                   children: [
                     Text(
                       finding.severity,
-                      style: TextStyle(
-                        fontSize: 12,
+                      style: AppTypography.labelSmall.copyWith(
+                        color: AppColors.secondaryAccent,
                         fontWeight: FontWeight.bold,
-                        color: Colors.grey[600],
-                        letterSpacing: 1.2,
                       ),
                     ),
                     const SizedBox(height: 8),
                     Text(
                       finding.title,
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
+                      style: AppTypography.headingXSmall.copyWith(
+                        color: AppColors.textDark,
                       ),
                     ),
                     const SizedBox(height: 8),
                     Text(
                       finding.description,
-                      style: TextStyle(
-                        color: isDark ? Colors.grey[300] : Colors.grey[800],
-                        fontSize: 14,
-                        height: 1.4,
+                      style: AppTypography.bodySmall.copyWith(
+                        fontWeight: FontWeight.w600,
+                        color: AppColors.textMuted,
                       ),
                     ),
                     const SizedBox(height: 12),
                     if (finding.confidence > 0)
                       Text(
                         'Tingkat kepercayaan: ${finding.confidence}%',
-                        style: TextStyle(
-                          color: isDark ? Colors.grey[400] : Colors.grey[700],
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500,
+                        style: AppTypography.bodySmall.copyWith(
+                          color: AppColors.textMuted,
                         ),
                       ),
                   ],

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:vechicare_app/core/theme/app_colors.dart';
+import 'package:vechicare_app/core/theme/app_typography.dart';
 
 enum WarningSeverity { low, medium, high }
 
@@ -17,11 +19,11 @@ class WarningCard extends StatelessWidget {
   Color get _severityColor {
     switch (severity) {
       case WarningSeverity.low:
-        return Colors.blue;
+        return AppColors.success;
       case WarningSeverity.medium:
-        return Colors.amber;
+        return AppColors.warning;
       case WarningSeverity.high:
-        return Colors.red;
+        return AppColors.alert;
     }
   }
 
@@ -43,7 +45,7 @@ class WarningCard extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.only(bottom: 8),
       decoration: BoxDecoration(
-        color: isDark ? Colors.grey[800] : const Color(0xFFF5F6F8),
+        color: isDark ? AppColors.secondary : AppColors.scaffoldBackground,
         borderRadius: BorderRadius.circular(12),
       ),
       clipBehavior: Clip.antiAlias,
@@ -63,21 +65,13 @@ class WarningCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
-                      title,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
-                        color: isDark ? Colors.white : Colors.black87,
-                      ),
-                    ),
+                    Text(title, style: AppTypography.headingXSmall),
                     const SizedBox(height: 4),
                     Text(
                       subtitle,
-                      style: TextStyle(
-                        color: isDark ? Colors.grey[300] : Colors.grey[600],
-                        fontSize: 14,
-                        height: 1.4,
+                      style: AppTypography.bodySmall.copyWith(
+                        color: AppColors.textMuted,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                   ],

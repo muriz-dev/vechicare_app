@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:vechicare_app/core/theme/app_colors.dart';
+import 'package:vechicare_app/core/theme/app_typography.dart';
 
 class ScanningStepsList extends StatelessWidget {
   final List<String> steps;
@@ -12,15 +14,12 @@ class ScanningStepsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = Theme.of(context).brightness == Brightness.dark;
-
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: Column(
         children: List.generate(steps.length, (index) {
           bool isCompleted = index < currentStep;
           bool isCurrent = index == currentStep;
-          Color defaultColor = isDark ? Colors.white : Colors.black87;
 
           IconData iconData;
           Color iconColor;
@@ -28,16 +27,16 @@ class ScanningStepsList extends StatelessWidget {
 
           if (isCompleted) {
             iconData = Icons.check_circle_outline;
-            iconColor = defaultColor;
-            textColor = defaultColor;
+            iconColor = AppColors.success;
+            textColor = AppColors.success;
           } else if (isCurrent) {
             iconData = Icons.circle;
-            iconColor = const Color(0xFF1976D2);
-            textColor = const Color(0xFF1976D2);
+            iconColor = AppColors.primary;
+            textColor = AppColors.primary;
           } else {
             iconData = Icons.radio_button_unchecked;
-            iconColor = defaultColor;
-            textColor = Colors.grey;
+            iconColor = AppColors.textMuted;
+            textColor = AppColors.textMuted;
           }
 
           return Padding(
@@ -48,12 +47,9 @@ class ScanningStepsList extends StatelessWidget {
                 const SizedBox(width: 16),
                 Text(
                   steps[index],
-                  style: TextStyle(
-                    fontSize: 16,
+                  style: AppTypography.headingXSmall.copyWith(
                     color: textColor,
-                    fontWeight: isCurrent
-                        ? FontWeight.w600
-                        : FontWeight.normal,
+                    fontWeight: isCurrent ? FontWeight.bold : FontWeight.w600,
                   ),
                 ),
               ],

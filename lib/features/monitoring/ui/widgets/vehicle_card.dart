@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 import '../../../../data/models/vehicle_model.dart';
+import 'package:vechicare_app/core/theme/app_colors.dart';
+import 'package:vechicare_app/core/theme/app_typography.dart';
 
 class VehicleCard extends StatelessWidget {
   final VehicleModel vehicle;
@@ -9,39 +11,42 @@ class VehicleCard extends StatelessWidget {
 
   int _calculateHealthScore(VehicleModel v) {
     int score = 100;
-    
+
     if (v.rpm >= 5000) {
       score -= 25;
     } else if (v.rpm >= 3500) {
       score -= 10;
     }
-    
+
     if (v.engineTemperature >= 100) {
       score -= 25;
     } else if (v.engineTemperature >= 85) {
       score -= 10;
     }
-    
+
     if (v.fuelConsumption <= 5) {
       score -= 25;
     } else if (v.fuelConsumption <= 8) {
       score -= 10;
     }
-    
+
     if (v.fuelBatteryLevel <= 20) {
       score -= 25;
     } else if (v.fuelBatteryLevel <= 40) {
       score -= 10;
     }
-    
+
     return score.clamp(0, 100);
   }
 
   @override
   Widget build(BuildContext context) {
     final healthScore = _calculateHealthScore(vehicle);
-    
+
     return Card(
+      elevation: 0,
+      color: AppColors.scaffoldBackground,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Row(
@@ -92,7 +97,7 @@ class VehicleCard extends StatelessWidget {
                               ),
                             ),
                             const Text(
-                              'Skor',
+                              'Kesehatan',
                               style: TextStyle(
                                 fontSize: 12,
                                 color: Colors.grey,
@@ -115,17 +120,29 @@ class VehicleCard extends StatelessWidget {
                 children: [
                   Text(
                     vehicle.vehicleName,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 20,
+                    style: AppTypography.headingMedium.copyWith(
+                      color: AppColors.textDark,
                     ),
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                   ),
                   const SizedBox(height: 8),
-                  Text('RPM: ${vehicle.rpm}'),
-                  Text('Temp: ${vehicle.engineTemperature} °C'),
-                  Text('Fuel: ${vehicle.fuelBatteryLevel}%'),
+                  Text(
+                    vehicle.vehicleId,
+                    style: AppTypography.bodySmall.copyWith(
+                      color: AppColors.textMuted,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    'Terakhir diperbarui 10 menit yang lalu',
+                    style: AppTypography.bodySmall.copyWith(
+                      color: AppColors.textMuted,
+                      fontSize: 10,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
                 ],
               ),
             ),

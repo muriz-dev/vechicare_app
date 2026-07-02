@@ -1,57 +1,60 @@
 import 'package:flutter/material.dart';
+import 'package:vechicare_app/core/theme/app_colors.dart';
+import 'package:vechicare_app/core/theme/app_typography.dart';
 
 class StartScanCard extends StatelessWidget {
   final VoidCallback onScanPressed;
 
-  const StartScanCard({
-    super.key,
-    required this.onScanPressed,
-  });
+  const StartScanCard({super.key, required this.onScanPressed});
 
   @override
   Widget build(BuildContext context) {
-    final isDark = Theme.of(context).brightness == Brightness.dark;
-    final cardColor = isDark ? Colors.grey[800] : const Color(0xFFF5F6F8);
-    
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 16),
       decoration: BoxDecoration(
-        color: cardColor,
+        color: AppColors.primaryAccent,
         borderRadius: BorderRadius.circular(16),
       ),
       child: Column(
         children: [
-          const Icon(Icons.health_and_safety, size: 48),
+          const Icon(
+            Icons.health_and_safety,
+            size: 48,
+            color: AppColors.primary,
+          ),
           const SizedBox(height: 16),
-          const Text(
+          Text(
             'Mulai Pemindaian',
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            style: AppTypography.headingSmall.copyWith(
+              color: AppColors.primary,
+            ),
           ),
           const SizedBox(height: 8),
-          const Text(
+          Text(
             'Sistem akan menganalisis kondisi kendaraan Anda',
-            style: TextStyle(color: Colors.grey),
+            style: AppTypography.bodySmall.copyWith(
+              color: AppColors.primaryDark,
+              fontWeight: FontWeight.w500,
+            ),
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 24),
           ElevatedButton(
             onPressed: onScanPressed,
             style: ElevatedButton.styleFrom(
-              backgroundColor: const Color(0xFF1E1E1E),
-              padding: const EdgeInsets.symmetric(
-                horizontal: 24,
-                vertical: 12,
-              ),
+              elevation: 0,
+              backgroundColor: AppColors.primary,
+              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(24),
               ),
             ),
-            child: const Text(
+            child: Text(
               'Scan Sekarang',
-              style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.w600,
+              style: AppTypography.bodyRegular.copyWith(
+                color: AppColors.textLight,
+                fontWeight: FontWeight.bold,
               ),
             ),
           ),

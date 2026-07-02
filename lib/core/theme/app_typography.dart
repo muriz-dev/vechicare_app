@@ -18,6 +18,20 @@ class AppTypography {
     letterSpacing: -0.4,
   );
 
+  static const TextStyle headingSmall = TextStyle(
+    fontFamily: _fontFamily,
+    fontSize: 18,
+    fontWeight: FontWeight.bold,
+    letterSpacing: -0.4,
+  );
+
+  static const TextStyle headingXSmall = TextStyle(
+    fontFamily: _fontFamily,
+    fontSize: 16,
+    fontWeight: FontWeight.bold,
+    letterSpacing: -0.4,
+  );
+
   static const TextStyle sectionTitle = TextStyle(
     fontFamily: _fontFamily,
     fontSize: 18,
@@ -45,5 +59,11 @@ class AppTypography {
     fontSize: 12,
     fontWeight: FontWeight.normal,
     color: Colors.grey, // Perfect for timestamps or secondary text
+  );
+
+  static const TextStyle labelSmall = TextStyle(
+    fontFamily: _fontFamily,
+    fontSize: 10,
+    fontWeight: FontWeight.normal,
   );
 }

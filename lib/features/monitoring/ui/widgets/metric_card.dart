@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:vechicare_app/core/theme/app_colors.dart';
+import 'package:vechicare_app/core/theme/app_typography.dart';
 
 enum MetricStatus { good, warning, danger, none }
 
@@ -19,11 +21,11 @@ class MetricCard extends StatelessWidget {
   Color _getStatusColor() {
     switch (status) {
       case MetricStatus.good:
-        return Colors.greenAccent;
+        return AppColors.success;
       case MetricStatus.warning:
-        return Colors.amber;
+        return AppColors.warning;
       case MetricStatus.danger:
-        return Colors.redAccent;
+        return AppColors.alert;
       case MetricStatus.none:
         return Colors.transparent;
     }
@@ -34,7 +36,7 @@ class MetricCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.grey[800],
+        color: AppColors.primary,
         borderRadius: BorderRadius.circular(16),
       ),
       child: Column(
@@ -44,7 +46,7 @@ class MetricCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Icon(icon, color: const Color(0xFF67B5DB), size: 28),
+              Icon(icon, color: AppColors.primaryAccent, size: 28),
               if (status != MetricStatus.none)
                 Container(
                   width: 10,
@@ -59,20 +61,15 @@ class MetricCard extends StatelessWidget {
           const Spacer(),
           Text(
             value,
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
+            style: AppTypography.headingMedium.copyWith(
+              color: AppColors.textLight,
             ),
           ),
           const SizedBox(height: 4),
           Text(
             label.toUpperCase(),
-            style: const TextStyle(
-              color: Colors.grey,
-              fontSize: 12,
-              fontWeight: FontWeight.w600,
-              letterSpacing: 1.1,
+            style: AppTypography.bodySmall.copyWith(
+              color: AppColors.primaryAccent,
             ),
           ),
         ],

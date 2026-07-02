@@ -10,6 +10,8 @@ import '../bloc/monitoring_state.dart';
 import 'widgets/vehicle_carousel.dart';
 import 'widgets/telemetry_grid.dart';
 import 'widgets/warning_card.dart';
+import 'package:vechicare_app/core/theme/app_colors.dart';
+import 'package:vechicare_app/core/theme/app_typography.dart';
 
 @RoutePage()
 class DashboardPage extends StatefulWidget implements AutoRouteWrapper {
@@ -140,27 +142,18 @@ class _DashboardPageState extends State<DashboardPage> {
                   children: [
                     const Text(
                       'Halo, Zaenal Abidin',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600,
-                      ),
+                      style: AppTypography.headingMedium,
                     ),
                     const Text(
                       'Mari lihat kondisi kendaraanmu saat ini yuk!',
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w400,
-                      ),
+                      style: AppTypography.bodyRegular,
                     ),
                     const SizedBox(height: 16),
                     const Text(
                       'Analisis Kendaraan',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500,
-                      ),
+                      style: AppTypography.headingSmall,
                     ),
-                    const SizedBox(height: 8),
+                    const SizedBox(height: 12),
                     VehicleCarousel(
                       vehicles: vehicles,
                       onPageChanged: (index) {
@@ -172,12 +165,9 @@ class _DashboardPageState extends State<DashboardPage> {
                     const SizedBox(height: 16),
                     const Text(
                       'Data Realtime',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500,
-                      ),
+                      style: AppTypography.headingSmall,
                     ),
-                    const SizedBox(height: 8),
+                    const SizedBox(height: 12),
                     if (vehicles.isNotEmpty)
                       TelemetryGrid(
                         vehicle: _selectedIndex < vehicles.length
@@ -185,14 +175,8 @@ class _DashboardPageState extends State<DashboardPage> {
                             : vehicles.first,
                       ),
                     const SizedBox(height: 16),
-                    const Text(
-                      'Peringatan',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                    const SizedBox(height: 8),
+                    const Text('Peringatan', style: AppTypography.headingSmall),
+                    const SizedBox(height: 12),
                     if (vehicles.isNotEmpty)
                       Column(
                         children: _buildWarnings(

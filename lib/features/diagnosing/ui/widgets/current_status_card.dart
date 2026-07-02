@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:vechicare_app/core/theme/app_colors.dart';
+import 'package:vechicare_app/core/theme/app_typography.dart';
 
 class CurrentStatusCard extends StatelessWidget {
   const CurrentStatusCard({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final isDark = Theme.of(context).brightness == Brightness.dark;
-    final cardColor = isDark ? Colors.grey[800] : const Color(0xFFF5F6F8);
-    
     return Container(
       decoration: BoxDecoration(
-        color: cardColor,
+        color: AppColors.scaffoldBackground,
         borderRadius: BorderRadius.circular(12),
       ),
       clipBehavior: Clip.antiAlias,
@@ -18,34 +17,34 @@ class CurrentStatusCard extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Container(
-              width: 4,
-              color: isDark ? Colors.grey[600] : Colors.black87,
-            ),
+            Container(width: 4, color: AppColors.success),
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Row(
                   children: [
-                    const Icon(Icons.check_circle_outline, size: 28),
+                    const Icon(
+                      Icons.check_circle_outline,
+                      size: 28,
+                      color: AppColors.success,
+                    ),
                     const SizedBox(width: 12),
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
+                        children: [
                           Text(
                             'Semua Sistem Normal',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16,
+                            style: AppTypography.headingXSmall.copyWith(
+                              color: AppColors.textDark,
                             ),
                           ),
-                          SizedBox(height: 4),
+                          const SizedBox(height: 4),
                           Text(
-                            'Pemindaian terakhir: 2 jam lalu',
-                            style: TextStyle(
-                              color: Colors.grey,
-                              fontSize: 12,
+                            'Pemindaian terakhir 2 jam lalu',
+                            style: AppTypography.bodySmall.copyWith(
+                              color: AppColors.textMuted,
+                              fontWeight: FontWeight.w600,
                             ),
                           ),
                         ],

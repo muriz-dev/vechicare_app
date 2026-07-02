@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
+import 'package:vechicare_app/core/theme/app_colors.dart';
+import 'package:vechicare_app/core/theme/app_typography.dart';
 
 class ScoreGauge extends StatelessWidget {
   final int score;
 
-  const ScoreGauge({
-    super.key,
-    required this.score,
-  });
+  const ScoreGauge({super.key, required this.score});
 
   @override
   Widget build(BuildContext context) {
-    final isDark = Theme.of(context).brightness == Brightness.dark;
-    
     return SizedBox(
       height: 200,
       child: SfRadialGauge(
@@ -26,17 +23,17 @@ class ScoreGauge extends StatelessWidget {
             showTicks: false,
             axisLineStyle: AxisLineStyle(
               thickness: 0.15,
-              color: isDark ? Colors.grey[800] : Colors.grey[200],
+              color: AppColors.textMuted,
               thicknessUnit: GaugeSizeUnit.factor,
             ),
             pointers: <GaugePointer>[
               RangePointer(
                 value: score.toDouble(),
-                color: score >= 80
-                    ? Colors.green
-                    : score >= 60
-                    ? const Color(0xFF8BC34A) // Light green as in image
-                    : Colors.red,
+                color: score >= 75
+                    ? AppColors.success
+                    : score >= 55
+                    ? AppColors.warning
+                    : AppColors.alert,
                 cornerStyle: CornerStyle.bothCurve,
                 width: 0.15,
                 sizeUnit: GaugeSizeUnit.factor,
@@ -51,16 +48,15 @@ class ScoreGauge extends StatelessWidget {
                   children: [
                     Text(
                       '$score',
-                      style: const TextStyle(
+                      style: AppTypography.displayLarge.copyWith(
                         fontSize: 48,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const Text(
+                    Text(
                       '/ 100',
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.grey,
+                      style: AppTypography.bodyRegular.copyWith(
+                        color: AppColors.textMuted,
                         fontWeight: FontWeight.w600,
                       ),
                     ),

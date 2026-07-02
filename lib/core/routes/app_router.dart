@@ -5,6 +5,7 @@ import 'package:vechicare_app/features/profile/ui/profile.dart';
 import 'package:vechicare_app/home_page.dart';
 import 'package:vechicare_app/features/diagnosing/ui/scanning.dart';
 import 'package:vechicare_app/features/diagnosing/ui/diagnosis_result.dart';
+import 'package:vechicare_app/features/diagnosing/ui/diagnosis_history.dart';
 import 'package:collection/collection.dart'; // For ListEquality used by AutoRoute
 import 'package:vechicare_app/features/diagnosing/cubit/diagnosis_state.dart'; // For DiagnosisFinding
 import 'package:flutter/material.dart'; // Often needed for AutoRoute generated arguments like Key
@@ -26,5 +27,6 @@ class AppRouter extends RootStackRouter {
     ),
     AutoRoute(page: ScanningRoute.page),
     AutoRoute(page: DiagnosisResultRoute.page),
+    AutoRoute(page: DiagnosisHistoryRoute.page),
   ];
 }

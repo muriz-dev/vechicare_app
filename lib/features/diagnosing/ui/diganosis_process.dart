@@ -60,7 +60,9 @@ class DiagnosisProcessPage extends StatelessWidget {
                   ),
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    context.router.push(const DiagnosisHistoryRoute());
+                  },
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [

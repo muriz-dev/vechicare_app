@@ -27,6 +27,22 @@ class DashboardRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [DiagnosisHistoryPage]
+class DiagnosisHistoryRoute extends PageRouteInfo<void> {
+  const DiagnosisHistoryRoute({List<PageRouteInfo>? children})
+    : super(DiagnosisHistoryRoute.name, initialChildren: children);
+
+  static const String name = 'DiagnosisHistoryRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const DiagnosisHistoryPage();
+    },
+  );
+}
+
+/// generated route for
 /// [DiagnosisProcessPage]
 class DiagnosisProcessRoute extends PageRouteInfo<void> {
   const DiagnosisProcessRoute({List<PageRouteInfo>? children})

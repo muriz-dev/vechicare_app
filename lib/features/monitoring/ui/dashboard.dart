@@ -2,7 +2,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vechicare_app/core/theme/app_sizes.dart';
-import 'package:vechicare_app/data/models/vehicle_model.dart';
 import '../../../core/di/injection.dart';
 import '../bloc/monitoring_bloc.dart';
 import '../bloc/monitoring_event.dart';
@@ -31,94 +30,6 @@ class DashboardPage extends StatefulWidget implements AutoRouteWrapper {
 
 class _DashboardPageState extends State<DashboardPage> {
   int _selectedIndex = 0;
-
-  List<Widget> _buildWarnings(VehicleModel vehicle) {
-    final List<Widget> warnings = [];
-
-    if (vehicle.rpm >= 5000) {
-      warnings.add(
-        const WarningCard(
-          title: 'Putaran Mesin Kritis',
-          subtitle: 'RPM sangat tinggi. Kurangi kecepatan segera.',
-          severity: WarningSeverity.high,
-        ),
-      );
-    } else if (vehicle.rpm >= 3500) {
-      warnings.add(
-        const WarningCard(
-          title: 'Putaran Mesin Tinggi',
-          subtitle: 'RPM mesin di atas batas efisien.',
-          severity: WarningSeverity.medium,
-        ),
-      );
-    }
-
-    if (vehicle.engineTemperature >= 100) {
-      warnings.add(
-        const WarningCard(
-          title: 'Suhu Mesin Panas',
-          subtitle: 'Suhu pendingin mencapai batas kritis. Segera menepi.',
-          severity: WarningSeverity.high,
-        ),
-      );
-    } else if (vehicle.engineTemperature >= 85) {
-      warnings.add(
-        const WarningCard(
-          title: 'Suhu Mesin Meningkat',
-          subtitle: 'Perhatikan indikator suhu, mesin mulai panas.',
-          severity: WarningSeverity.medium,
-        ),
-      );
-    }
-
-    if (vehicle.fuelConsumption <= 5) {
-      warnings.add(
-        const WarningCard(
-          title: 'Konsumsi BBM Boros',
-          subtitle: 'Kendaraan sangat tidak efisien saat ini.',
-          severity: WarningSeverity.high,
-        ),
-      );
-    } else if (vehicle.fuelConsumption <= 8) {
-      warnings.add(
-        const WarningCard(
-          title: 'Konsumsi BBM Kurang Efisien',
-          subtitle: 'Pertimbangkan untuk mengemudi lebih halus.',
-          severity: WarningSeverity.medium,
-        ),
-      );
-    }
-
-    if (vehicle.fuelBatteryLevel <= 20) {
-      warnings.add(
-        const WarningCard(
-          title: 'Sisa Energi Kritis',
-          subtitle: 'Segera isi ulang bahan bakar atau baterai.',
-          severity: WarningSeverity.high,
-        ),
-      );
-    } else if (vehicle.fuelBatteryLevel <= 40) {
-      warnings.add(
-        const WarningCard(
-          title: 'Sisa Energi Rendah',
-          subtitle: 'Rencanakan pengisian ulang energi.',
-          severity: WarningSeverity.medium,
-        ),
-      );
-    }
-
-    if (warnings.isEmpty) {
-      warnings.add(
-        const WarningCard(
-          title: 'Sistem Normal',
-          subtitle: 'Semua komponen berjalan dengan baik.',
-          severity: WarningSeverity.low,
-        ),
-      );
-    }
-
-    return warnings;
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -178,11 +89,16 @@ class _DashboardPageState extends State<DashboardPage> {
                     const SizedBox(height: 12),
                     if (vehicles.isNotEmpty)
                       Column(
-                        children: _buildWarnings(
-                          _selectedIndex < vehicles.length
-                              ? vehicles[_selectedIndex]
-                              : vehicles.first,
-                        ),
+                        children: (_selectedIndex < vehicles.length
+                                ? vehicles[_selectedIndex]
+                                : vehicles.first)
+                            .activeWarnings
+                            .map((w) => WarningCard(
+                                  title: w.title,
+                                  subtitle: w.subtitle,
+                                  severity: w.severity,
+                                ))
+                            .toList(),
                       ),
                   ],
                 ),

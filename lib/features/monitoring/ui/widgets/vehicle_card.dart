@@ -9,54 +9,9 @@ class VehicleCard extends StatelessWidget {
 
   const VehicleCard({super.key, required this.vehicle});
 
-  int _calculateHealthScore(VehicleModel v) {
-    int score = 100;
-
-    if (v.rpm >= 5000) {
-      score -= 25;
-    } else if (v.rpm >= 3500) {
-      score -= 10;
-    }
-
-    if (v.engineTemperature >= 100) {
-      score -= 25;
-    } else if (v.engineTemperature >= 85) {
-      score -= 10;
-    }
-
-    if (v.fuelConsumption <= 5) {
-      score -= 25;
-    } else if (v.fuelConsumption <= 8) {
-      score -= 10;
-    }
-
-    if (v.fuelBatteryLevel <= 20) {
-      score -= 25;
-    } else if (v.fuelBatteryLevel <= 40) {
-      score -= 10;
-    }
-
-    return score.clamp(0, 100);
-  }
-
-  String _formatTimeAgo(DateTime date) {
-    final now = DateTime.now();
-    final difference = now.difference(date);
-    
-    if (difference.inDays > 0) {
-      return 'Terakhir diperbarui ${difference.inDays} hari yang lalu';
-    } else if (difference.inHours > 0) {
-      return 'Terakhir diperbarui ${difference.inHours} jam yang lalu';
-    } else if (difference.inMinutes > 0) {
-      return 'Terakhir diperbarui ${difference.inMinutes} menit yang lalu';
-    } else {
-      return 'Baru saja diperbarui';
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
-    final healthScore = _calculateHealthScore(vehicle);
+    final healthScore = vehicle.healthScore;
 
     return Card(
       elevation: 0,
@@ -151,7 +106,7 @@ class VehicleCard extends StatelessWidget {
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    _formatTimeAgo(vehicle.lastUpdated),
+                    vehicle.lastUpdatedFormatted,
                     style: AppTypography.bodySmall.copyWith(
                       color: AppColors.textMuted,
                       fontSize: 10,

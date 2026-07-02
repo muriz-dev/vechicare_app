@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vechicare_app/core/theme/app_colors.dart';
 import 'package:vechicare_app/core/theme/app_typography.dart';
-
-enum WarningSeverity { low, medium, high }
+import '../../../../data/models/vehicle_enums.dart';
 
 class WarningCard extends StatelessWidget {
   final String title;

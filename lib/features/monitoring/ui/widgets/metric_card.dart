@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vechicare_app/core/theme/app_colors.dart';
 import 'package:vechicare_app/core/theme/app_typography.dart';
-
-enum MetricStatus { good, warning, danger, none }
+import '../../../../data/models/vehicle_enums.dart';
 
 class MetricCard extends StatelessWidget {
   final IconData icon;

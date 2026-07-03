@@ -36,6 +36,7 @@ class CurrentStatusCard extends StatelessWidget {
                             'Semua Sistem Normal',
                             style: AppTypography.headingXSmall.copyWith(
                               color: AppColors.textDark,
+                              fontWeight: FontWeight.w600,
                             ),
                           ),
                           const SizedBox(height: 4),

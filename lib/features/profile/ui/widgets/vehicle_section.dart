@@ -31,6 +31,7 @@ class VehicleSection extends StatelessWidget {
               '3 Kendaraan Terdaftar',
               style: AppTypography.headingXSmall.copyWith(
                 color: AppColors.secondaryAccent,
+                fontWeight: FontWeight.w600,
               ),
             ),
             trailing: const Icon(

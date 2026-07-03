@@ -63,7 +63,12 @@ class WarningCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(title, style: AppTypography.headingXSmall),
+                    Text(
+                      title,
+                      style: AppTypography.headingXSmall.copyWith(
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
                     const SizedBox(height: 4),
                     Text(
                       subtitle,

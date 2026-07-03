@@ -24,6 +24,7 @@ class SettingsTile extends StatelessWidget {
         title,
         style: AppTypography.headingXSmall.copyWith(
           color: AppColors.secondaryAccent,
+          fontWeight: FontWeight.w600,
         ),
       ),
       trailing:

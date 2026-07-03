@@ -16,7 +16,7 @@ class TelemetryGrid extends StatelessWidget {
       crossAxisCount: 2,
       crossAxisSpacing: 12,
       mainAxisSpacing: 12,
-      childAspectRatio: 1.1,
+      childAspectRatio: 1,
       children: [
         MetricCard(
           icon: Icons.speed,
@@ -27,13 +27,13 @@ class TelemetryGrid extends StatelessWidget {
         MetricCard(
           icon: Icons.directions_car_outlined,
           value: '${vehicle.fuelConsumption}',
-          label: 'Fuel Cons.',
+          label: 'Fuel Cons',
           status: vehicle.fuelConsumptionStatus,
         ),
         MetricCard(
           icon: Icons.thermostat_outlined,
           value: '${vehicle.engineTemperature.toInt()}°C',
-          label: 'Coolant Temp',
+          label: 'Coolant Tempe',
           status: vehicle.engineTemperatureStatus,
         ),
         MetricCard(

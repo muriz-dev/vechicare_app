@@ -3,7 +3,9 @@ import 'package:vechicare_app/core/theme/app_colors.dart';
 import 'package:vechicare_app/core/theme/app_typography.dart';
 
 class DongleStatus extends StatelessWidget {
-  const DongleStatus({super.key});
+  final String vehicleName;
+
+  const DongleStatus({super.key, required this.vehicleName});
 
   @override
   Widget build(BuildContext context) {
@@ -23,14 +25,17 @@ class DongleStatus extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 12),
-            Text(
-              'Sedang Terhubung ke Tesla Model Y',
-              style: AppTypography.bodySmall.copyWith(
-                color: AppColors.textDark,
-                fontWeight: FontWeight.w600,
+            Expanded(
+              child: Text(
+                'Sedang Terhubung ke $vehicleName',
+                style: AppTypography.bodySmall.copyWith(
+                  color: AppColors.textDark,
+                  fontWeight: FontWeight.w600,
+                ),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
               ),
             ),
-            const Spacer(),
             const Icon(Icons.bluetooth, size: 16, color: AppColors.textDark),
           ],
         ),

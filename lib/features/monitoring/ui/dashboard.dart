@@ -65,7 +65,10 @@ class _DashboardPageState extends State<DashboardPage> {
                       style: AppTypography.headingSmall,
                     ),
                     const SizedBox(height: 12),
-                    const DongleStatus(),
+                    if (vehicles.isNotEmpty)
+                      DongleStatus(
+                        vehicleName: vehicles.first.vehicleName,
+                      ),
                     const SizedBox(height: 8),
                     VehicleCarousel(
                       vehicles: vehicles,

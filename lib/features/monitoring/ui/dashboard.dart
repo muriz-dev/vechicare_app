@@ -9,6 +9,7 @@ import '../bloc/monitoring_state.dart';
 import 'widgets/vehicle_carousel.dart';
 import 'widgets/telemetry_grid.dart';
 import 'widgets/warning_card.dart';
+import 'widgets/dongle_status.dart';
 import 'package:vechicare_app/core/theme/app_typography.dart';
 
 @RoutePage()
@@ -64,6 +65,8 @@ class _DashboardPageState extends State<DashboardPage> {
                       style: AppTypography.headingSmall,
                     ),
                     const SizedBox(height: 12),
+                    const DongleStatus(),
+                    const SizedBox(height: 8),
                     VehicleCarousel(
                       vehicles: vehicles,
                       onPageChanged: (index) {
@@ -89,16 +92,19 @@ class _DashboardPageState extends State<DashboardPage> {
                     const SizedBox(height: 12),
                     if (vehicles.isNotEmpty)
                       Column(
-                        children: (_selectedIndex < vehicles.length
-                                ? vehicles[_selectedIndex]
-                                : vehicles.first)
-                            .activeWarnings
-                            .map((w) => WarningCard(
-                                  title: w.title,
-                                  subtitle: w.subtitle,
-                                  severity: w.severity,
-                                ))
-                            .toList(),
+                        children:
+                            (_selectedIndex < vehicles.length
+                                    ? vehicles[_selectedIndex]
+                                    : vehicles.first)
+                                .activeWarnings
+                                .map(
+                                  (w) => WarningCard(
+                                    title: w.title,
+                                    subtitle: w.subtitle,
+                                    severity: w.severity,
+                                  ),
+                                )
+                                .toList(),
                       ),
                   ],
                 ),

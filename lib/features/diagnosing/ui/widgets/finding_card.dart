@@ -29,7 +29,7 @@ class FindingCard extends StatelessWidget {
                     Text(
                       finding.severity,
                       style: AppTypography.labelSmall.copyWith(
-                        color: AppColors.secondaryAccent,
+                        color: finding.color,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -38,6 +38,7 @@ class FindingCard extends StatelessWidget {
                       finding.title,
                       style: AppTypography.headingXSmall.copyWith(
                         color: AppColors.textDark,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                     const SizedBox(height: 8),

@@ -65,7 +65,7 @@ class DiagnosisHistoryPage extends StatelessWidget {
     ];
 
     return Scaffold(
-      backgroundColor: AppColors.background,
+      backgroundColor: AppColors.scaffoldBackground,
       appBar: AppBar(
         title: Text(
           'Riwayat Diagnosa',
@@ -73,7 +73,7 @@ class DiagnosisHistoryPage extends StatelessWidget {
             color: AppColors.textDark,
           ),
         ),
-        backgroundColor: AppColors.background,
+        backgroundColor: AppColors.scaffoldBackground,
         elevation: 0,
         centerTitle: true,
         leading: IconButton(

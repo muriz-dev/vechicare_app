@@ -14,8 +14,8 @@ class VehicleCard extends StatelessWidget {
     final healthScore = vehicle.healthScore;
 
     return Card(
-      elevation: 0,
-      color: AppColors.scaffoldBackground,
+      elevation: 0.1,
+      color: AppColors.background,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: Padding(
         padding: const EdgeInsets.all(16),

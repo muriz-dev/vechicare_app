@@ -34,9 +34,9 @@ class DiagnosisResultPage extends StatelessWidget {
         ),
         centerTitle: true,
         actions: [IconButton(icon: const Icon(Icons.share), onPressed: () {})],
-        backgroundColor: AppColors.background,
+        backgroundColor: AppColors.scaffoldBackground,
       ),
-      backgroundColor: AppColors.background,
+      backgroundColor: AppColors.scaffoldBackground,
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         padding: AppSizes.pagePadding,
@@ -69,7 +69,12 @@ class DiagnosisResultPage extends StatelessWidget {
             const SizedBox(height: 16),
 
             // Cards
-            ...findings.map((finding) => FindingCard(finding: finding)),
+            ...findings.map(
+              (finding) => Padding(
+                padding: const EdgeInsets.only(bottom: 12),
+                child: FindingCard(finding: finding),
+              ),
+            ),
           ],
         ),
       ),

@@ -9,56 +9,60 @@ class StartScanCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 16),
-      decoration: BoxDecoration(
-        color: AppColors.primaryAccent,
-        borderRadius: BorderRadius.circular(16),
-      ),
-      child: Column(
-        children: [
-          const Icon(
-            Icons.health_and_safety,
-            size: 48,
-            color: AppColors.primary,
-          ),
-          const SizedBox(height: 16),
-          Text(
-            'Mulai Pemindaian',
-            style: AppTypography.headingSmall.copyWith(
+    return Card(
+      elevation: 0.1,
+      color: AppColors.primaryAccent,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      child: Container(
+        width: double.infinity,
+        padding: EdgeInsets.symmetric(vertical: 32, horizontal: 12),
+        child: Column(
+          children: [
+            const Icon(
+              Icons.health_and_safety,
+              size: 48,
               color: AppColors.primary,
             ),
-          ),
-          const SizedBox(height: 8),
-          Text(
-            'Sistem akan menganalisis kondisi kendaraan Anda',
-            style: AppTypography.bodySmall.copyWith(
-              color: AppColors.primaryDark,
-              fontWeight: FontWeight.w500,
-            ),
-            textAlign: TextAlign.center,
-          ),
-          const SizedBox(height: 24),
-          ElevatedButton(
-            onPressed: onScanPressed,
-            style: ElevatedButton.styleFrom(
-              elevation: 0,
-              backgroundColor: AppColors.primary,
-              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(24),
+            const SizedBox(height: 16),
+            Text(
+              'Mulai Pemindaian',
+              style: AppTypography.headingSmall.copyWith(
+                color: AppColors.primary,
               ),
             ),
-            child: Text(
-              'Scan Sekarang',
-              style: AppTypography.bodyRegular.copyWith(
-                color: AppColors.textLight,
-                fontWeight: FontWeight.bold,
+            const SizedBox(height: 8),
+            Text(
+              'Sistem akan menganalisis kondisi kendaraan Anda',
+              style: AppTypography.bodySmall.copyWith(
+                color: AppColors.primaryDark,
+                fontWeight: FontWeight.w500,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 24),
+            ElevatedButton(
+              onPressed: onScanPressed,
+              style: ElevatedButton.styleFrom(
+                elevation: 0,
+                backgroundColor: AppColors.primary,
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 24,
+                  vertical: 12,
+                ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(24),
+                ),
+              ),
+              child: Text(
+                'Scan Sekarang',
+                style: AppTypography.bodyRegular.copyWith(
+                  color: AppColors.textLight,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

@@ -17,8 +17,8 @@ class VehicleSection extends StatelessWidget {
         const SizedBox(height: 12),
         Card(
           margin: EdgeInsets.zero,
-          elevation: 0,
-          color: AppColors.scaffoldBackground,
+          elevation: 0.1,
+          color: AppColors.background,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
           ),

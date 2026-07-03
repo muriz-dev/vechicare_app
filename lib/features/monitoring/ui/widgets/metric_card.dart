@@ -32,47 +32,48 @@ class MetricCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: AppColors.primary,
-        borderRadius: BorderRadius.circular(16),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Icon(icon, color: AppColors.primaryAccent, size: 28),
-              if (status != MetricStatus.none)
-                Container(
-                  width: 10,
-                  height: 10,
-                  decoration: BoxDecoration(
-                    color: _getStatusColor(),
-                    shape: BoxShape.circle,
+    return Card(
+      elevation: 0.1,
+      color: AppColors.primary,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Icon(icon, color: AppColors.primaryAccent, size: 28),
+                if (status != MetricStatus.none)
+                  Container(
+                    width: 10,
+                    height: 10,
+                    decoration: BoxDecoration(
+                      color: _getStatusColor(),
+                      shape: BoxShape.circle,
+                    ),
                   ),
-                ),
-            ],
-          ),
-          const Spacer(),
-          Text(
-            value,
-            style: AppTypography.headingMedium.copyWith(
-              color: AppColors.textLight,
+              ],
             ),
-          ),
-          const SizedBox(height: 4),
-          Text(
-            label.toUpperCase(),
-            style: AppTypography.bodySmall.copyWith(
-              color: AppColors.primaryAccent,
-              fontWeight: FontWeight.w600,
+            const Spacer(),
+            Text(
+              value,
+              style: AppTypography.headingMedium.copyWith(
+                color: AppColors.textLight,
+              ),
             ),
-          ),
-        ],
+            const SizedBox(height: 4),
+            Text(
+              label.toUpperCase(),
+              style: AppTypography.bodySmall.copyWith(
+                color: AppColors.primaryAccent,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -20,7 +20,7 @@ class ScanningPage extends StatelessWidget {
     return BlocProvider(
       create: (context) => DiagnosisCubit()..startScanning(),
       child: Scaffold(
-        backgroundColor: AppColors.background,
+        backgroundColor: AppColors.scaffoldBackground,
         body: SafeArea(
           child: BlocConsumer<DiagnosisCubit, DiagnosisState>(
             listener: (context, state) {

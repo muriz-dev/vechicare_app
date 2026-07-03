@@ -73,6 +73,20 @@ class DiagnosisCubit extends Cubit<DiagnosisState> {
           confidence: 0,
           color: const Color(0xFF2196F3), // Blue
         ),
+        DiagnosisFinding(
+          severity: 'PERINGATAN',
+          title: 'Tekanan Ban Rendah',
+          description: 'Tekanan ban belakang kiri berada di bawah standar (28 PSI). Segera tambah tekanan ban untuk menghindari kerusakan.',
+          confidence: 95,
+          color: const Color(0xFFFFC107), // Amber
+        ),
+        DiagnosisFinding(
+          severity: 'INFO',
+          title: 'Tegangan Aki Menurun',
+          description: 'Tegangan aki terdeteksi agak rendah. Masih dalam batas aman namun perlu dipantau.',
+          confidence: 88,
+          color: const Color(0xFF2196F3), // Blue
+        ),
       ],
     ));
   }

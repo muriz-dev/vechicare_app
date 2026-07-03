@@ -12,7 +12,8 @@ class WarningCard extends StatelessWidget {
     super.key,
     this.title = 'Kampas Rem Depan Aus',
     this.date = 'Ditemukan 3 hari lalu',
-    this.description = 'Sisa ketebalan kampas rem depan tersisa 35%. Disarankan untuk mengganti dalam 2 minggu ke depan',
+    this.description =
+        'Sisa ketebalan kampas rem depan tersisa 35%. Disarankan untuk mengganti dalam 2 minggu ke depan',
     this.indicatorColor = Colors.amber,
   });
 
@@ -24,17 +25,16 @@ class WarningCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: AppColors.scaffoldBackground,
-        borderRadius: BorderRadius.circular(12),
-      ),
+    return Card(
+      elevation: 0.1,
+      color: AppColors.background,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       clipBehavior: Clip.antiAlias,
       child: IntrinsicHeight(
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Container(width: 4, color: indicatorColor),
+            Container(width: 8, color: indicatorColor),
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.all(16.0),

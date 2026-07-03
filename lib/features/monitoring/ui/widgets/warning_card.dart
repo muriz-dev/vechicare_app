@@ -41,18 +41,17 @@ class WarningCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
 
-    return Container(
+    return Card(
+      elevation: 0.1,
       margin: const EdgeInsets.only(bottom: 8),
-      decoration: BoxDecoration(
-        color: isDark ? AppColors.secondary : AppColors.scaffoldBackground,
-        borderRadius: BorderRadius.circular(12),
-      ),
+      color: isDark ? AppColors.secondary : AppColors.background,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       clipBehavior: Clip.antiAlias,
       child: IntrinsicHeight(
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Container(width: 4, color: _severityColor),
+            Container(width: 8, color: _severityColor),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Icon(_severityIcon, color: _severityColor, size: 28),

@@ -66,7 +66,7 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
             const SizedBox(height: 24),
             Text(
-              'CASTAN',
+              'VechiCare',
               style: AppTypography.headingMedium.copyWith(
                 color: AppColors.textDark,
                 letterSpacing: 4,

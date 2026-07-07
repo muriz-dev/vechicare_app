@@ -23,7 +23,7 @@ class MockAuthRepository implements AuthRepository {
   final List<_RegisteredUser> _users = [
     _RegisteredUser(
       name: 'Demo User',
-      email: 'demo@castan.id',
+      email: 'demo@vehicare.id',
       password: 'password',
     ),
   ];

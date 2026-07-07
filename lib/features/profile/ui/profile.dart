@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:vechicare_app/core/routes/app_router.dart';
 import 'package:vechicare_app/core/theme/app_sizes.dart';
 import 'package:vechicare_app/features/profile/ui/widgets/profile_header.dart';
 import 'package:vechicare_app/features/profile/ui/widgets/vehicle_section.dart';
@@ -8,6 +9,9 @@ import 'package:vechicare_app/features/profile/ui/widgets/settings_tile.dart';
 import 'package:vechicare_app/features/profile/ui/widgets/logout_button.dart';
 import 'package:vechicare_app/core/theme/app_colors.dart';
 import 'package:vechicare_app/core/theme/app_typography.dart';
+
+import '../../../core/di/injection.dart';
+import '../../auth/cubit/auth_cubit.dart';
 
 @RoutePage()
 class ProfilePage extends StatelessWidget {
@@ -79,6 +83,25 @@ class ProfilePage extends StatelessWidget {
             ),
             const SizedBox(height: 24),
 
+            // Layanan
+            const Text(
+              'Layanan',
+              style: AppTypography.headingSmall,
+            ),
+            const SizedBox(height: 8),
+            SettingsCard(
+              children: [
+                SettingsTile(
+                  icon: Icons.build_circle_outlined,
+                  title: 'Bengkel Mitra',
+                  onTap: () {
+                    context.router.push(const BengkelListRoute());
+                  },
+                ),
+              ],
+            ),
+            const SizedBox(height: 24),
+
             // Konfigurasi Kendaraan
             const Text(
               'Konfigurasi Kendaraan',
@@ -140,7 +163,14 @@ class ProfilePage extends StatelessWidget {
             const SizedBox(height: 32),
 
             // Logout button
-            const LogoutButton(),
+            LogoutButton(
+              onPressed: () async {
+                await getIt<AuthCubit>().logout();
+                if (context.mounted) {
+                  context.router.replace(const LoginRoute());
+                }
+              },
+            ),
             const SizedBox(height: 32),
           ],
         ),
